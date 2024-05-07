@@ -9,18 +9,11 @@
   >
     <thead>
       <tr>
-        <th 
-        *ngFor="let column of listOfColumns"
-        [nzFilters]="column.listOfFilter"
-        [nzFilterFn]="column.filterFn"
-        >
-        {{column.name}}
-        </th>
-        <!-- <th>Completed</th>
+        <th>Completed</th>
         <th>Id</th>
         <th>Title</th>
         <th>description</th>
-        <th>Action</th> -->
+        <th>Action</th>
       </tr>
     </thead>
     <tbody>

@@ -18,37 +18,7 @@ interface ColumnItem{
 })
 export class TodoListComponent implements OnInit {
 
-  listOfColumns: ColumnItem[] = [
-    {
-      name: 'Completed',
-      listOfFilter: [
-        {text: 'Active Todos', value: false},
-        {text: 'Completed Todos', value: true}
-      ],
-      filterFn: (list: boolean[], item: TodoItem) => list.some(isCompleted => item.isCompleted === isCompleted)
-    },
-    {
-      name: 'Id',
-      listOfFilter: [],
-      filterFn: null
-    },
-    {
-      name: 'Title',
-      listOfFilter: [],
-      filterFn: null
-    },
-    {
-      name: 'Description',
-      listOfFilter: [],
-      filterFn: null
-    },
-    {
-      name: 'Action',
-      listOfFilter: [],
-      filterFn: null
-    },
-  ]
-
+  
   todoList: TodoItem[] = [];
   currentPageTodoList: readonly TodoItem[] = []
 

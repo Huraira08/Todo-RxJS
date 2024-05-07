@@ -8,24 +8,24 @@ import { BehaviorSubject, Subject } from 'rxjs';
 export class TodoListService {
   private TODO_KEY = 'todo-list'
   private todoList: TodoItem[] = [
-    // {
-    //   id: 1,
-    //   title: 'Learn Angular',
-    //   description: 'To learn all basic concepts of Angular',
-    //   isCompleted: true
-    // },
-    // {
-    //   id: 2,
-    //   title: 'Learn RxJS',
-    //   description: 'To learn all basic concepts of RxJS',
-    //   isCompleted: true
-    // },
-    // {
-    //   id: 3,
-    //   title: 'have Green Tea',
-    //   description: 'Make a Green tea and drink it',
-    //   isCompleted: false
-    // }
+    {
+      id: 1,
+      title: 'Learn Angular',
+      description: 'To learn all basic concepts of Angular',
+      isCompleted: true
+    },
+    {
+      id: 2,
+      title: 'Learn RxJS',
+      description: 'To learn all basic concepts of RxJS',
+      isCompleted: true
+    },
+    {
+      id: 3,
+      title: 'have Green Tea',
+      description: 'Make a Green tea and drink it',
+      isCompleted: false
+    }
   ]
   private todoListSubject = new BehaviorSubject<TodoItem[]>(this.todoList);
   private listCounter;
@@ -35,7 +35,9 @@ export class TodoListService {
     if(todoList && todoList.length > 0) {
       this.todoList = todoList;
       this.todoListSubject.next(this.todoList);
-    } 
+    } else if(this.todoList.length > 0){
+      localStorage.setItem(this.TODO_KEY, JSON.stringify(this.todoList));
+    }
     
     this.listCounter = this.todoList.length + 1;
   }
