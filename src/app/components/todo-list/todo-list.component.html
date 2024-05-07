@@ -1,0 +1,42 @@
+<div class="send-request">
+    <!-- <span>Selected {{ setOfCheckedId.size }} items</span> -->
+  </div>
+  <nz-table
+    nzShowPagination
+    nzShowSizeChanger
+    [nzData]="todoList"
+    (nzCurrentPageDataChange)="onCurrentPageDataChange($event)"
+  >
+    <thead>
+      <tr>
+        <th 
+        *ngFor="let column of listOfColumns"
+        [nzFilters]="column.listOfFilter"
+        [nzFilterFn]="column.filterFn"
+        >
+        {{column.name}}
+        </th>
+        <!-- <th>Completed</th>
+        <th>Id</th>
+        <th>Title</th>
+        <th>description</th>
+        <th>Action</th> -->
+      </tr>
+    </thead>
+    <tbody>
+      <tr (click)="onItemChecked(item.id, !item.isCompleted)" *ngFor="let item of todoList">
+        <td
+          [nzChecked]="item.isCompleted"
+          (nzCheckedChange)="onItemChecked(item.id, $event)"
+        ></td>
+        <td>{{ item.id }}</td>
+        <td>{{ item.title }}</td>
+        <td>{{ item.description }}</td>
+        <td>
+          <a (click)="editTodo(item)">Edit</a>
+          <nz-divider nzType="vertical"></nz-divider>
+          <a style="color: red;" (click)="deleteTodo(item.id)">Delete</a>
+        </td>
+      </tr>
+    </tbody>
+  </nz-table>
