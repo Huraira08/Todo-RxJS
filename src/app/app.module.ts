@@ -25,7 +25,6 @@ import { NzDividerModule } from 'ng-zorro-antd/divider';
 
 // Custom components
 import { TodoListComponent } from './components/todo-list/todo-list.component';
-import { AddTodoModalComponent } from './components/add-todo-modal/add-todo-modal.component';
 import { UpsertTodoModalComponent } from './components/upsert-todo-modal/upsert-todo-modal.component';
 
 registerLocaleData(en);
@@ -35,7 +34,6 @@ registerLocaleData(en);
     AppComponent,
     TodoListPageComponent,
     TodoListComponent,
-    AddTodoModalComponent,
     UpsertTodoModalComponent
   ],
   imports: [
