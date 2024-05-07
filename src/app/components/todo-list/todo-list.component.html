@@ -2,8 +2,6 @@
     <!-- <span>Selected {{ setOfCheckedId.size }} items</span> -->
   </div>
   <nz-table
-    nzShowPagination
-    nzShowSizeChanger
     [nzData]="todoList"
     (nzCurrentPageDataChange)="onCurrentPageDataChange($event)"
   >
