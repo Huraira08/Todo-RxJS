@@ -3,13 +3,6 @@ import { TodoListService } from '../../services/todo-list.service';
 import { TodoItem } from '../../models/todo-item';
 import { NzModalService } from 'ng-zorro-antd/modal';
 import { UpsertTodoModalComponent } from '../upsert-todo-modal/upsert-todo-modal.component';
-import { NzTableFilterFn, NzTableFilterList } from 'ng-zorro-antd/table';
-
-interface ColumnItem{
-  name: string;
-  listOfFilter: NzTableFilterList;
-  filterFn: NzTableFilterFn<TodoItem> | null;
-}
 
 @Component({
   selector: 'app-todo-list',
