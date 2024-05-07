@@ -50,6 +50,7 @@ export class TodoListService {
   setCompletedStatus(id: number, isCompleted: boolean){
     const index = this.todoList.findIndex(item => item.id === id)
     this.todoList[index].isCompleted = isCompleted
+    localStorage.setItem(this.TODO_KEY, JSON.stringify(this.todoList))
     this.todoListSubject.next(this.todoList);
   }
 

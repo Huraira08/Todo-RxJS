@@ -10,7 +10,6 @@ interface ITodoModalData {
     isCompleted: boolean
 }
 
-
 @Component({
   selector: 'app-upsert-todo-modal',
   styleUrl: './upsert-todo-modal.component.css',

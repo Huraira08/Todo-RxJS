@@ -15,7 +15,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr (click)="onItemChecked(item.id, !item.isCompleted)" *ngFor="let item of todoList">
+      <tr *ngFor="let item of todoList">
         <td
           [nzChecked]="item.isCompleted"
           (nzCheckedChange)="onItemChecked(item.id, $event)"
