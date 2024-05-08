@@ -46,39 +46,47 @@ export class TodoListService {
   getTodoListSubject(){
     return this.todoListSubject;
   }
+  
+  updateLocalStorage(){
+    localStorage.setItem(this.TODO_KEY, JSON.stringify(this.todoList))
+  }
+
+  emitNextEvent(){
+    this.todoListSubject.next(this.todoList);
+  }
 
   setCompletedStatus(id: number, isCompleted: boolean){
     const index = this.todoList.findIndex(item => item.id === id)
     this.todoList[index].isCompleted = isCompleted
-    localStorage.setItem(this.TODO_KEY, JSON.stringify(this.todoList))
-    this.todoListSubject.next(this.todoList);
+    this.updateLocalStorage()
+    this.emitNextEvent()
   }
 
   addTodo(item: TodoItem){
     item.id = this.listCounter++;
     this.todoList.push(item);
-    localStorage.setItem(this.TODO_KEY, JSON.stringify(this.todoList))
-    this.todoListSubject.next(this.todoList);
+    this.updateLocalStorage()
+    this.emitNextEvent()
   }
   
   updateTodo(id: number, item: TodoItem){
     const index = this.todoList.findIndex(item => item.id === id)
     this.todoList[index] = item;
     this.todoList[index].id = id
-    localStorage.setItem(this.TODO_KEY, JSON.stringify(this.todoList))
-    this.todoListSubject.next(this.todoList);
+    this.updateLocalStorage()
+    this.emitNextEvent()
   }
 
   deleteTodo(id: number){
     const index = this.todoList.findIndex(item => item.id === id)
     this.todoList.splice(index, 1);
-    localStorage.setItem(this.TODO_KEY, JSON.stringify(this.todoList))
-    this.todoListSubject.next(this.todoList);
+    this.updateLocalStorage()
+    this.emitNextEvent()
   }
 
   clearCompleted(){
     this.todoList = this.todoList.filter(item =>!item.isCompleted)
-    localStorage.setItem(this.TODO_KEY, JSON.stringify(this.todoList))
-    this.todoListSubject.next(this.todoList);
+    this.updateLocalStorage()
+    this.emitNextEvent()
   }
 }
