@@ -7,8 +7,5 @@ import { NzModalService } from 'ng-zorro-antd/modal';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'todo-list-rxjs';
-
-
   
 }

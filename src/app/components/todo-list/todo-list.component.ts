@@ -10,7 +10,6 @@ import { UpsertTodoModalComponent } from '../upsert-todo-modal/upsert-todo-modal
   styleUrl: './todo-list.component.css'
 })
 export class TodoListComponent implements OnInit {
-
   
   todoList: TodoItem[] = [];
   currentPageTodoList: readonly TodoItem[] = []
@@ -36,7 +35,7 @@ export class TodoListComponent implements OnInit {
     this.currentPageTodoList = currentPageTodoList;
   }
 
-  onItemChecked(id: number,isChecked: boolean) {
+  onItemChecked(id: number, isChecked: boolean) {
     this.todoService.setCompletedStatus(id, isChecked);
   }
 
